@@ -1,0 +1,601 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const navigation = [
+  { href: "#about", label: "Nosotros" },
+  { href: "#services", label: "Servicios" },
+  { href: "#projects", label: "Proyectos" },
+  { href: "#experience", label: "Experiencia" },
+];
+
+const serviceCards = [
+  {
+    title: "Paneles Solares",
+    description:
+      "Mantenimiento preventivo, limpieza técnica y diagnóstico térmico para parques solares y cubiertas industriales.",
+    icon: "solar_power",
+    accent: "primary",
+  },
+  {
+    title: "Subestaciones",
+    description:
+      "Intervención técnica en transformadores, celdas de media tensión y pruebas dieléctricas con protocolos certificados.",
+    icon: "ev_station",
+    accent: "secondary",
+  },
+  {
+    title: "Limpieza Industrial",
+    description:
+      "Sistemas de lavado a alta presión y limpieza química para entornos críticos con continuidad operativa.",
+    icon: "cleaning_services",
+    accent: "primary",
+  },
+  {
+    title: "Mantenimiento General",
+    description:
+      "Gestión integral de instalaciones, inspecciones programadas y soporte técnico 24/7 para emergencias.",
+    icon: "build_circle",
+    accent: "secondary",
+  },
+];
+
+const pillars = [
+  {
+    icon: "verified_user",
+    title: "Seguridad",
+    description:
+      "Protocolos internacionales, análisis de riesgo y ejecución con foco en cero incidentes.",
+  },
+  {
+    icon: "speed",
+    title: "Eficiencia",
+    description:
+      "Maximizamos disponibilidad, reducimos paradas y optimizamos recursos críticos.",
+  },
+  {
+    icon: "psychology",
+    title: "Innovación",
+    description:
+      "Implementación de IoT, termografía y monitoreo en tiempo real para activos estratégicos.",
+  },
+];
+
+const stats = [
+  { value: "150+", label: "Proyectos realizados" },
+  { value: "12+", label: "Años de trayectoria profesional" },
+  { value: "45+", label: "Clientes corporativos" },
+  { value: "24/7", label: "Soporte técnico" },
+];
+
+const clients = [
+  "LOGOTIPO 1",
+  "LOGOTIPO 2",
+  "LOGOTIPO 3",
+  "LOGOTIPO 4",
+  "LOGOTIPO 5",
+];
+
+const portfolio = [
+  {
+    category: "Parque Eólico",
+    title: "Mantenimiento de palas y generadores",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuCRBvL-6-IuWqGB5mnf9PWmDIG8DxXHXlO95kF8965VAbrb9WMCM4Pm0-PQlnek8K7zV9_Kia4t8HVwXiWrMJnZKHzz6Blz8_znyJI6llMYtj9HD39ct0GIoltjKabq1I-1MUDMFqhcBC6G1INAVpmk5nqPB38ywzmC_LwdJn4OEaRPIccZta92tvQ_aT6EMyDnvzZ_JqADM6-JkSn8z7d_Qg7Q0rCATeVCJcxUcL_T9nvqWc33De9C26E-l-SZgMiOTlWb0ms2mvB8",
+    span: "md:col-span-2 md:row-span-2",
+  },
+  {
+    category: "Subestación",
+    title: "Modernización de celdas",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuCoRywvyBf6GgOOJru0FX2nt1I2Yn9l0qiUglvBcxeuDRl28Y3uHznlqiEZU_d9Y-CIWnwIKf4sRYhVdZeStCzE-wiAZl0d_V1VsahtPHyBr8d4E_rrOpqkNWaO9nmYEYC0P8Tdt7J_wEpH3UrApXk4zIqTqUJKd5vKAB8bFAO2MJl59QWV_VvqO_mxw9OJAkAPzudnhWicYYtr_hWG44mc7jZZx3ayznerhkjCWLzhXo6vdpmVVfQl1Ox4G9XdT6BsBdYOlB_VYhlR",
+    span: "",
+  },
+  {
+    category: "Solar",
+    title: "Instalación megawatt 15MW",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuCMDpIG-mF7yPY069XfJmUnmele7egIpsiCmRItNn2FsQb9vafsOjOVY4ZHSJEuQ5wW4m_dHxsFEgXCwHpKXdUhrVHLaZhuYJvGj16myhMgzVx-_c6D9z14YXGdJ6tZUR5Q6xnp4b4M5QHOU2X_womW5xfOmSagXNHdua-aBRtNTW1gVL9u47oHwf2WiZmTp92e-oQcuCFWVXqVNWJ4UCyk_FSl4K5JhwihN2GbtP-L2NqR16cwHzrQnUlfEQM7IsxIjau6wRYEKy8L",
+    span: "",
+  },
+  {
+    category: "Industrial",
+    title: "Mantenimiento de planta térmica",
+    image:
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuC1TkoVDEzcZPIUcpfNVdrnAt4dFjKL4IhjxSLsSCqGEFyOy9B2StHRDC2ZtmDMHHc2gFNy0SfgAgWAWt52F7k_S3aeJadMu4KAw5XtJHSgek2INdf6z-SSb3DOK0i7ZIVuP_GYvcHG7XawquYJ5c5IPi7o0AZd1qmAKQ6TJYX_e8ZZ4f1K9lZUeEYZgsXbU58jNgAUtjDHS4DklUkOor1oz53XYvtgoYvxtgXEjAWhRrLbLLoLHnmUAieZZeQnfGp4MH5xgX8chMrB",
+    span: "md:col-span-2",
+  },
+];
+
+const contactItems = [
+  { icon: "location_on", text: "Santo Domingo, República Dominicana" },
+  { icon: "mail", text: "info@terma.do" },
+  { icon: "phone", text: "+1 809-555-0123" },
+];
+
+const socialLinks = [
+  { label: "LinkedIn", href: "#" },
+  { label: "Instagram", href: "#" },
+];
+---
+
+<BaseLayout>
+  <header
+    class="fixed inset-x-0 top-0 z-50 border-b border-slate-200/70 bg-white/80 shadow-sm backdrop-blur-xl"
+  >
+    <div class="section-shell flex h-24 items-center justify-between gap-6">
+      <a href="#top" class="flex items-center gap-3">
+        <img
+          src="/public/terma.png"
+          alt="TERMA Logo"
+          class="h-24 w-auto object-contain"
+        />
+      </a>
+
+      <nav class="hidden items-center gap-8 md:flex">
+        {
+          navigation.map((item) => (
+            <a
+              href={item.href}
+              class="text-sm font-semibold text-slate-600 transition hover:text-cyan-600"
+            >
+              {item.label}
+            </a>
+          ))
+        }
+        <a
+          href="#contact"
+          class="rounded-2xl bg-gradient-to-r from-[#2ba1c9] to-[#32a2c0] px-6 py-3 text-sm font-bold text-white transition hover:opacity-90"
+        >
+          Contactanos
+        </a>
+      </nav>
+
+      <button
+        type="button"
+        class="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 text-[#006783] md:hidden"
+        aria-label="Abrir menú"
+      >
+        <span class="material-symbols-outlined text-3xl">menu</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="relative overflow-hidden bg-[#f6fafd] pt-28">
+      <div class="energy-particle -left-24 -top-16 h-80 w-80 opacity-50"></div>
+      <div
+        class="energy-particle -bottom-28 -right-20 h-[28rem] w-[28rem] opacity-40"
+        style="background: radial-gradient(circle, rgba(253, 123, 49, 0.16) 0%, rgba(255, 255, 255, 0) 70%);"
+      >
+      </div>
+
+      <div
+        class="section-shell grid min-h-[calc(100vh-5rem)] items-center gap-12 py-16 lg:grid-cols-2"
+      >
+        <div class="relative z-10">
+          <span
+            class="mb-6 inline-flex rounded-full bg-[#bde9ff] px-4 py-1.5 text-xs font-extrabold uppercase tracking-[0.24em] text-[#001f2a]"
+          >
+            TERMA - Expertos en RD
+          </span>
+          <h1
+            class="max-w-3xl text-5xl font-black leading-none tracking-tight text-[#171c1f] sm:text-6xl lg:text-7xl"
+          >
+            Soluciones avanzadas en
+            <span
+              class="bg-gradient-to-r from-[#006783] to-[#2ba1c9] bg-clip-text text-transparent"
+              >energía</span
+            >
+            y mantenimiento industrial
+          </h1>
+          <p class="mt-8 max-w-xl text-lg leading-8 text-[#3e484e] sm:text-xl">
+            Especialistas en paneles solares, subestaciones y mantenimiento
+            integral para el sector industrial dominicano.
+          </p>
+
+          <div class="mt-10 flex flex-col gap-4 sm:flex-row">
+            <a
+              href="#contact"
+              class="rounded-2xl bg-gradient-to-r from-[#006783] to-[#2ba1c9] px-8 py-4 text-center text-base font-bold text-white shadow-lg shadow-cyan-700/20 transition hover:-translate-y-0.5 hover:shadow-xl"
+            >
+              Contáctanos
+            </a>
+            <a
+              href="#services"
+              class="rounded-2xl border border-[#bdc8ce] bg-white px-8 py-4 text-center text-base font-bold text-[#006783] transition hover:bg-[#f0f4f7]"
+            >
+              Ver servicios
+            </a>
+          </div>
+        </div>
+
+        <div class="relative hidden lg:block">
+          <div
+            class="overflow-hidden rounded-[2rem] bg-gradient-to-br from-cyan-100/60 to-orange-100/40 shadow-2xl"
+          >
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6ZEDM00YWiDbQFqz939uuBnVBq2X9eCD5MPI14g-flKyJbPmvJmuDD1PsrQBNypmaw2zXNqjywrfjniHf2i8rjcMUHiNMSI3hj6rmMzTR61wxyBByj_ZB4IxzvSIYTVZDuYG8xr_0KFGJ7zlqClKljLoWNPHw90-XDhipt3wUgHJwfDxjQiH9LtgFBXcOLKNYiyU7GzMArD59zQXDibPFLNnQAIEOSx4w0dXU0VKqjO7Cx7gfnY5oOZ2ULlnk3YQiJon3w9tpFDTP"
+              alt="Equipo de ingeniería inspeccionando equipos industriales"
+              class="h-[600px] w-full object-cover"
+            />
+          </div>
+
+          <div
+            class="glass-panel absolute -bottom-8 left-0 max-w-xs rounded-[1.75rem] border border-slate-200/70 bg-white/90 p-6 shadow-xl"
+          >
+            <div class="flex items-start gap-4">
+              <div class="rounded-2xl bg-[#ffdbcb] p-3 text-[#341000]">
+                <span class="material-symbols-outlined">bolt</span>
+              </div>
+              <div>
+                <p class="text-sm font-extrabold text-[#171c1f]">
+                  Eficiencia energética
+                </p>
+                <p class="mt-1 text-sm leading-6 text-[#3e484e]">
+                  Optimizamos el consumo industrial con tecnología de punta y
+                  mantenimiento predictivo.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="bg-[#f0f4f7] py-24 sm:py-28">
+      <div class="section-shell grid items-center gap-14 lg:grid-cols-2">
+        <div class="order-2 lg:order-1">
+          <div class="relative overflow-hidden rounded-[2rem] shadow-2xl">
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6ZEDM00YWiDbQFqz939uuBnVBq2X9eCD5MPI14g-flKyJbPmvJmuDD1PsrQBNypmaw2zXNqjywrfjniHf2i8rjcMUHiNMSI3hj6rmMzTR61wxyBByj_ZB4IxzvSIYTVZDuYG8xr_0KFGJ7zlqClKljLoWNPHw90-XDhipt3wUgHJwfDxjQiH9LtgFBXcOLKNYiyU7GzMArD59zQXDibPFLNnQAIEOSx4w0dXU0VKqjO7Cx7gfnY5oOZ2ULlnk3YQiJon3w9tpFDTP"
+              alt="Ingenieros industriales evaluando maquinaria de alta tecnología"
+              class="h-[500px] w-full object-cover"
+            />
+            <div class="absolute inset-0 bg-cyan-900/10"></div>
+          </div>
+        </div>
+
+        <div class="order-1 lg:order-2">
+          <p
+            class="mb-4 text-xs font-black uppercase tracking-[0.25em] text-[#9f4100]"
+          >
+            Trayectoria e innovación
+          </p>
+          <h2
+            class="text-4xl font-black tracking-tight text-[#171c1f] sm:text-5xl"
+          >
+            Ingeniería que impulsa el futuro industrial de República Dominicana
+          </h2>
+          <p class="mt-6 text-lg leading-8 text-[#3e484e]">
+            Contamos con un equipo altamente capacitado y especializado en el
+            mercado dominicano, aplicando técnicas avanzadas de mantenimiento
+            predictivo y preventivo para garantizar operatividad, seguridad y
+            sostenibilidad.
+          </p>
+
+          <div class="mt-10 grid gap-6 sm:grid-cols-2">
+            {
+              pillars.map((pillar, index) => (
+                <article
+                  class:list={[
+                    "rounded-[1.5rem] bg-white p-6 shadow-sm ring-1 ring-slate-200/70",
+                    index === 2 && "sm:col-span-2",
+                  ]}
+                >
+                  <div class="flex items-start gap-4">
+                    <span class="material-symbols-outlined text-3xl text-[#006783]">
+                      {pillar.icon}
+                    </span>
+                    <div>
+                      <h3 class="text-lg font-extrabold text-[#171c1f]">
+                        {pillar.title}
+                      </h3>
+                      <p class="mt-1 text-sm leading-6 text-[#3e484e]">
+                        {pillar.description}
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="bg-white py-24 sm:py-28">
+      <div class="section-shell">
+        <div class="mx-auto max-w-3xl text-center">
+          <h2
+            class="text-4xl font-black tracking-tight text-[#171c1f] sm:text-5xl"
+          >
+            Servicios especializados
+          </h2>
+          <p class="mt-4 text-lg leading-8 text-[#3e484e]">
+            Mantenimiento avanzado diseñado para extender la vida útil de su
+            infraestructura energética e industrial.
+          </p>
+        </div>
+
+        <div class="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          {
+            serviceCards.map((service) => {
+              const isPrimary = service.accent === "primary";
+              return (
+                <article class="group rounded-[1.75rem] border border-slate-200/70 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl">
+                  <div
+                    class:list={[
+                      "mb-6 flex h-14 w-14 items-center justify-center rounded-2xl transition-colors",
+                      isPrimary
+                        ? "bg-[#bde9ff] text-[#001f2a] group-hover:bg-[#006783] group-hover:text-white"
+                        : "bg-[#ffdbcb] text-[#341000] group-hover:bg-[#9f4100] group-hover:text-white",
+                    ]}
+                  >
+                    <span class="material-symbols-outlined text-3xl">
+                      {service.icon}
+                    </span>
+                  </div>
+                  <h3 class="text-xl font-extrabold text-[#171c1f]">
+                    {service.title}
+                  </h3>
+                  <p class="mt-4 text-sm leading-6 text-[#3e484e]">
+                    {service.description}
+                  </p>
+                  <a
+                    href="#contact"
+                    class:list={[
+                      "mt-6 inline-flex items-center gap-2 text-sm font-extrabold transition group-hover:gap-4",
+                      isPrimary ? "text-[#006783]" : "text-[#9f4100]",
+                    ]}
+                  >
+                    Solicitar servicio
+                    <span class="material-symbols-outlined text-base">
+                      arrow_forward
+                    </span>
+                  </a>
+                </article>
+              );
+            })
+          }
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="experience"
+      class="relative overflow-hidden bg-[#dfe3e6] py-24 sm:py-28"
+    >
+      <div class="section-shell relative z-10">
+        <div class="grid gap-10 text-center md:grid-cols-2 xl:grid-cols-4">
+          {
+            stats.map((stat, index) => (
+              <div>
+                <p
+                  class:list={[
+                    "text-5xl font-black tracking-tight sm:text-6xl",
+                    index % 2 === 0 ? "text-[#006783]" : "text-[#9f4100]",
+                  ]}
+                >
+                  {stat.value}
+                </p>
+                <p class="mt-3 text-xs font-extrabold uppercase tracking-[0.22em] text-[#3e484e]">
+                  {stat.label}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+
+        <div class="mt-20 text-center">
+          <p class="text-base font-medium italic text-[#3e484e]">
+            Han confiado en nosotros empresas líderes de la región.
+          </p>
+          <div
+            class="mt-10 flex flex-wrap items-center justify-center gap-6 sm:gap-8"
+          >
+            {
+              clients.map((client) => (
+                <div class="flex h-14 w-36 items-center justify-center rounded-xl bg-slate-300/70 text-xs font-black tracking-[0.2em] text-slate-700 grayscale">
+                  {client}
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="bg-white py-24 sm:py-28">
+      <div class="section-shell">
+        <div
+          class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between"
+        >
+          <div>
+            <h2
+              class="text-4xl font-black tracking-tight text-[#171c1f] sm:text-5xl"
+            >
+              Portafolio de excelencia
+            </h2>
+            <p class="mt-3 text-lg text-[#3e484e]">
+              Visión de proyectos de alto impacto para infraestructura crítica.
+            </p>
+          </div>
+          <a
+            href="#contact"
+            class="hidden rounded-2xl border border-[#006783] px-6 py-3 text-sm font-bold text-[#006783] transition hover:bg-[#bde9ff] md:inline-flex"
+          >
+            Ver todos los proyectos
+          </a>
+        </div>
+
+        <div class="mt-14 grid auto-rows-[220px] gap-6 md:grid-cols-3">
+          {
+            portfolio.map((item) => (
+              <article
+                class:list={[
+                  "group relative overflow-hidden rounded-[1.75rem]",
+                  item.span,
+                ]}
+              >
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  class="h-full w-full object-cover transition duration-700 group-hover:scale-110"
+                />
+                <div class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-slate-950/80 to-transparent p-8">
+                  <p class="text-xs font-bold uppercase tracking-[0.24em] text-white/70">
+                    {item.category}
+                  </p>
+                  <h3 class="mt-2 text-2xl font-extrabold text-white">
+                    {item.title}
+                  </h3>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="overflow-hidden bg-[#f0f4f7] py-24 sm:py-28">
+      <div class="section-shell">
+        <div
+          class="grid overflow-hidden rounded-[2.5rem] border border-slate-200/70 bg-white shadow-2xl lg:grid-cols-5"
+        >
+          <div
+            class="flex flex-col justify-between gap-10 bg-gradient-to-br from-[#006783] to-[#00677d] p-10 text-white lg:col-span-2 lg:p-12"
+          >
+            <div>
+              <h2 class="text-4xl font-black tracking-tight sm:text-5xl">
+                Iniciemos su proyecto hoy
+              </h2>
+              <p class="mt-6 max-w-md text-base leading-7 text-cyan-50/90">
+                Cuéntenos sobre sus necesidades de mantenimiento o ingeniería.
+                Nuestro equipo le responderá en menos de 24 horas.
+              </p>
+
+              <div class="mt-10 space-y-6">
+                {
+                  contactItems.map((item) => (
+                    <div class="flex items-center gap-4">
+                      <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10">
+                        <span class="material-symbols-outlined">
+                          {item.icon}
+                        </span>
+                      </div>
+                      <p class="font-medium">{item.text}</p>
+                    </div>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+
+          <div class="p-10 lg:col-span-3 lg:p-12">
+            <form class="space-y-6">
+              <div class="grid gap-6 md:grid-cols-2">
+                <label class="block">
+                  <span
+                    class="mb-2 block text-xs font-black uppercase tracking-[0.22em] text-[#3e484e]"
+                    >Nombre completo</span
+                  >
+                  <input
+                    type="text"
+                    placeholder="Ej. Juan Pérez"
+                    class="w-full rounded-2xl border border-transparent bg-[#e5e9ec] px-5 py-4 text-[#171c1f] outline-none transition focus:border-[#006783] focus:bg-white focus:ring-4 focus:ring-cyan-100"
+                  />
+                </label>
+                <label class="block">
+                  <span
+                    class="mb-2 block text-xs font-black uppercase tracking-[0.22em] text-[#3e484e]"
+                    >Correo electrónico</span
+                  >
+                  <input
+                    type="email"
+                    placeholder="juan@empresa.do"
+                    class="w-full rounded-2xl border border-transparent bg-[#e5e9ec] px-5 py-4 text-[#171c1f] outline-none transition focus:border-[#006783] focus:bg-white focus:ring-4 focus:ring-cyan-100"
+                  />
+                </label>
+              </div>
+
+              <label class="block">
+                <span
+                  class="mb-2 block text-xs font-black uppercase tracking-[0.22em] text-[#3e484e]"
+                  >Servicio de interés</span
+                >
+                <select
+                  class="w-full rounded-2xl border border-transparent bg-[#e5e9ec] px-5 py-4 text-[#171c1f] outline-none transition focus:border-[#006783] focus:bg-white focus:ring-4 focus:ring-cyan-100"
+                >
+                  <option>Paneles solares</option>
+                  <option>Subestaciones</option>
+                  <option>Mantenimiento industrial</option>
+                  <option>Otro</option>
+                </select>
+              </label>
+
+              <label class="block">
+                <span
+                  class="mb-2 block text-xs font-black uppercase tracking-[0.22em] text-[#3e484e]"
+                  >Mensaje</span
+                >
+                <textarea
+                  rows="5"
+                  placeholder="Describa su requerimiento..."
+                  class="w-full rounded-2xl border border-transparent bg-[#e5e9ec] px-5 py-4 text-[#171c1f] outline-none transition focus:border-[#006783] focus:bg-white focus:ring-4 focus:ring-cyan-100"
+                ></textarea>
+              </label>
+
+              <button
+                type="submit"
+                class="w-full rounded-2xl bg-gradient-to-r from-[#9f4100] to-[#fd7b31] px-6 py-4 text-base font-black text-white shadow-lg shadow-orange-600/20 transition hover:-translate-y-0.5 hover:shadow-xl"
+              >
+                Enviar mensaje
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 bg-slate-50">
+    <div
+      class="section-shell flex flex-col gap-8 py-12 md:flex-row md:items-center md:justify-between"
+    >
+      <div>
+        <div class="mb-2 flex items-center gap-3">
+          <img
+            src="/public/terma.png"
+            alt="TERMA Logo"
+            class="h-20 w-auto object-contain"
+          />
+        </div>
+        <p class="text-sm text-slate-500">
+          Tecnología y energía para el mañana.
+        </p>
+      </div>
+
+      <div
+        class="flex flex-wrap items-center gap-6 text-sm font-semibold text-slate-500"
+      >
+        <a href="#" class="transition hover:text-orange-500"
+          >Política de privacidad</a
+        >
+        <a href="#" class="transition hover:text-orange-500"
+          >Términos del servicio</a
+        >
+        {
+          socialLinks.map((link) => (
+            <a href={link.href} class="transition hover:text-orange-500">
+              {link.label}
+            </a>
+          ))
+        }
+      </div>
+
+      <p class="text-xs font-black uppercase tracking-[0.18em] text-slate-500">
+        © 2024 TERMA - Técnicas de Energías Renovables y Mantenimiento Avanzado.
+      </p>
+    </div>
+  </footer>
+</BaseLayout>
