@@ -125,7 +125,7 @@ const socialLinks = [
     <div class="section-shell flex h-24 items-center justify-between gap-6">
       <a href="#top" class="flex items-center gap-3">
         <img
-          src="/public/terma.png"
+          src="/terma.png"
           alt="TERMA Logo"
           class="h-24 w-auto object-contain"
         />
@@ -244,7 +244,7 @@ const socialLinks = [
 
     <section id="about" class="bg-[#f0f4f7] py-24 sm:py-28">
       <div class="section-shell grid items-center gap-14 lg:grid-cols-2">
-        <div class="order-2 lg:order-1">
+        <div class="order-2 lg:order-1" data-reveal data-reveal-variant="left">
           <div class="relative overflow-hidden rounded-[2rem] shadow-2xl">
             <img
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6ZEDM00YWiDbQFqz939uuBnVBq2X9eCD5MPI14g-flKyJbPmvJmuDD1PsrQBNypmaw2zXNqjywrfjniHf2i8rjcMUHiNMSI3hj6rmMzTR61wxyBByj_ZB4IxzvSIYTVZDuYG8xr_0KFGJ7zlqClKljLoWNPHw90-XDhipt3wUgHJwfDxjQiH9LtgFBXcOLKNYiyU7GzMArD59zQXDibPFLNnQAIEOSx4w0dXU0VKqjO7Cx7gfnY5oOZ2ULlnk3YQiJon3w9tpFDTP"
@@ -255,7 +255,12 @@ const socialLinks = [
           </div>
         </div>
 
-        <div class="order-1 lg:order-2">
+        <div
+          class="order-1 lg:order-2"
+          data-reveal
+          data-reveal-variant="right"
+          style="--reveal-delay: 120ms;"
+        >
           <p
             class="mb-4 text-xs font-black uppercase tracking-[0.25em] text-[#9f4100]"
           >
@@ -281,6 +286,15 @@ const socialLinks = [
                     "rounded-[1.5rem] bg-white p-6 shadow-sm ring-1 ring-slate-200/70",
                     index === 2 && "sm:col-span-2",
                   ]}
+                  data-reveal
+                  data-reveal-variant={
+                    index === 2
+                      ? "pop"
+                      : index % 2 === 0
+                        ? "soft-left"
+                        : "soft-right"
+                  }
+                  style={`--reveal-delay: ${90 + index * 110}ms;`}
                 >
                   <div class="flex items-start gap-4">
                     <span class="material-symbols-outlined text-3xl text-[#006783]">
@@ -305,7 +319,11 @@ const socialLinks = [
 
     <section id="services" class="bg-white py-24 sm:py-28">
       <div class="section-shell">
-        <div class="mx-auto max-w-3xl text-center">
+        <div
+          class="mx-auto max-w-3xl text-center"
+          data-reveal
+          data-reveal-variant="pop"
+        >
           <h2
             class="text-4xl font-black tracking-tight text-[#171c1f] sm:text-5xl"
           >
@@ -319,10 +337,17 @@ const socialLinks = [
 
         <div class="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {
-            serviceCards.map((service) => {
+            serviceCards.map((service, index) => {
               const isPrimary = service.accent === "primary";
               return (
-                <article class="group rounded-[1.75rem] border border-slate-200/70 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <article
+                  class="group rounded-[1.75rem] border border-slate-200/70 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-2 hover:shadow-xl"
+                  data-reveal
+                  data-reveal-variant={
+                    index % 2 === 0 ? "soft-left" : "soft-right"
+                  }
+                  style={`--reveal-delay: ${80 + index * 95}ms;`}
+                >
                   <div
                     class:list={[
                       "mb-6 flex h-14 w-14 items-center justify-center rounded-2xl transition-colors",
@@ -369,7 +394,11 @@ const socialLinks = [
         <div class="grid gap-10 text-center md:grid-cols-2 xl:grid-cols-4">
           {
             stats.map((stat, index) => (
-              <div>
+              <div
+                data-reveal
+                data-reveal-variant="scale"
+                style={`--reveal-delay: ${index * 85}ms;`}
+              >
                 <p
                   class:list={[
                     "text-5xl font-black tracking-tight sm:text-6xl",
@@ -386,7 +415,12 @@ const socialLinks = [
           }
         </div>
 
-        <div class="mt-20 text-center">
+        <div
+          class="mt-20 text-center"
+          data-reveal
+          data-reveal-variant="pop"
+          style="--reveal-delay: 280ms;"
+        >
           <p class="text-base font-medium italic text-[#3e484e]">
             Han confiado en nosotros empresas líderes de la región.
           </p>
@@ -409,6 +443,7 @@ const socialLinks = [
       <div class="section-shell">
         <div
           class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between"
+          data-reveal
         >
           <div>
             <h2
@@ -430,12 +465,21 @@ const socialLinks = [
 
         <div class="mt-14 grid auto-rows-[220px] gap-6 md:grid-cols-3">
           {
-            portfolio.map((item) => (
+            portfolio.map((item, index) => (
               <article
                 class:list={[
                   "group relative overflow-hidden rounded-[1.75rem]",
                   item.span,
                 ]}
+                data-reveal
+                data-reveal-variant={
+                  index === 0
+                    ? "scale"
+                    : index % 2 === 0
+                      ? "soft-right"
+                      : "soft-left"
+                }
+                style={`--reveal-delay: ${70 + index * 110}ms;`}
               >
                 <img
                   src={item.image}
@@ -464,6 +508,8 @@ const socialLinks = [
         >
           <div
             class="flex flex-col justify-between gap-10 bg-gradient-to-br from-[#006783] to-[#00677d] p-10 text-white lg:col-span-2 lg:p-12"
+            data-reveal
+            data-reveal-variant="left"
           >
             <div>
               <h2 class="text-4xl font-black tracking-tight sm:text-5xl">
@@ -476,8 +522,13 @@ const socialLinks = [
 
               <div class="mt-10 space-y-6">
                 {
-                  contactItems.map((item) => (
-                    <div class="flex items-center gap-4">
+                  contactItems.map((item, index) => (
+                    <div
+                      class="flex items-center gap-4"
+                      data-reveal
+                      data-reveal-variant="soft-left"
+                      style={`--reveal-delay: ${160 + index * 90}ms;`}
+                    >
                       <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10">
                         <span class="material-symbols-outlined">
                           {item.icon}
@@ -491,9 +542,19 @@ const socialLinks = [
             </div>
           </div>
 
-          <div class="p-10 lg:col-span-3 lg:p-12">
+          <div
+            class="p-10 lg:col-span-3 lg:p-12"
+            data-reveal
+            data-reveal-variant="right"
+            style="--reveal-delay: 120ms;"
+          >
             <form class="space-y-6">
-              <div class="grid gap-6 md:grid-cols-2">
+              <div
+                class="grid gap-6 md:grid-cols-2"
+                data-reveal
+                data-reveal-variant="pop"
+                style="--reveal-delay: 180ms;"
+              >
                 <label class="block">
                   <span
                     class="mb-2 block text-xs font-black uppercase tracking-[0.22em] text-[#3e484e]"
@@ -518,7 +579,12 @@ const socialLinks = [
                 </label>
               </div>
 
-              <label class="block">
+              <label
+                class="block"
+                data-reveal
+                data-reveal-variant="pop"
+                style="--reveal-delay: 260ms;"
+              >
                 <span
                   class="mb-2 block text-xs font-black uppercase tracking-[0.22em] text-[#3e484e]"
                   >Servicio de interés</span
@@ -533,7 +599,12 @@ const socialLinks = [
                 </select>
               </label>
 
-              <label class="block">
+              <label
+                class="block"
+                data-reveal
+                data-reveal-variant="pop"
+                style="--reveal-delay: 340ms;"
+              >
                 <span
                   class="mb-2 block text-xs font-black uppercase tracking-[0.22em] text-[#3e484e]"
                   >Mensaje</span
@@ -548,6 +619,9 @@ const socialLinks = [
               <button
                 type="submit"
                 class="w-full rounded-2xl bg-gradient-to-r from-[#9f4100] to-[#fd7b31] px-6 py-4 text-base font-black text-white shadow-lg shadow-orange-600/20 transition hover:-translate-y-0.5 hover:shadow-xl"
+                data-reveal
+                data-reveal-variant="scale"
+                style="--reveal-delay: 420ms;"
               >
                 Enviar mensaje
               </button>
@@ -565,7 +639,7 @@ const socialLinks = [
       <div>
         <div class="mb-2 flex items-center gap-3">
           <img
-            src="/public/terma.png"
+            src="/terma.png"
             alt="TERMA Logo"
             class="h-20 w-auto object-contain"
           />

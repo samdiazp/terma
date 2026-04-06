@@ -39,3 +39,62 @@ h6 {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
+
+.reveal-on-scroll {
+  --reveal-delay: 0ms;
+  --reveal-duration: 780ms;
+  --reveal-distance: 2rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-on-scroll {
+    opacity: 0;
+    transform: translate3d(0, var(--reveal-distance), 0) scale(0.985);
+    filter: blur(10px);
+    transition:
+      opacity var(--reveal-duration) cubic-bezier(0.22, 1, 0.36, 1),
+      transform var(--reveal-duration) cubic-bezier(0.22, 1, 0.36, 1),
+      filter var(--reveal-duration) cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay);
+    will-change: opacity, transform, filter;
+  }
+
+  .reveal-on-scroll[data-reveal-variant="left"] {
+    transform: translate3d(calc(var(--reveal-distance) * -1), 0, 0) scale(0.985);
+  }
+
+  .reveal-on-scroll[data-reveal-variant="right"] {
+    transform: translate3d(var(--reveal-distance), 0, 0) scale(0.985);
+  }
+
+  .reveal-on-scroll[data-reveal-variant="scale"] {
+    transform: translate3d(0, 1rem, 0) scale(0.92);
+  }
+
+  .reveal-on-scroll[data-reveal-variant="pop"] {
+    transform: translate3d(0, 1.25rem, 0) scale(0.94);
+    filter: blur(12px);
+  }
+
+  .reveal-on-scroll[data-reveal-variant="soft-left"] {
+    transform: translate3d(calc(var(--reveal-distance) * -0.65), 1rem, 0) scale(0.97);
+  }
+
+  .reveal-on-scroll[data-reveal-variant="soft-right"] {
+    transform: translate3d(calc(var(--reveal-distance) * 0.65), 1rem, 0) scale(0.97);
+  }
+
+  .reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
